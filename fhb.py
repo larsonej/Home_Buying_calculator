@@ -1,9 +1,6 @@
 #fhb.py
 # To determine if buying a house is really a good option, and what we
-# should buy. To run the program: open a terminal, 'cd Desktop', then
-# 'idl'. Make sure this program is saved to the Desktop. in idl, type '.r
-# fhb.pro'. Edit the name, location, price, and hoa below. That's
-# pretty much it. 
+# should buy.  
 #ALL values in thousands of dollars
 
 import numpy as np
@@ -91,7 +88,7 @@ for i in np.arange(361)[1:361]:
 fig1,ax=plt.subplots()
 ax.plot(yr,equ)
 ax.set(xlabel='Year',ylabel='Equity, $1000')
-fig1.savefig('Equity.png')
+fig1.savefig(name+'Equity.png')
 plt.show()
 
 # CALCULATE MONTHLY AND TOTAL COSTS
@@ -115,7 +112,7 @@ fig2,ax=plt.subplots()
 ax.plot(yr,monthly, label='Buying')
 ax.plot(yr,initrent*inflate,label='Renting')
 ax.set(xlabel='Year',ylabel='Monthly cost, $1000')
-fig2.savefig('Mortgage-vs-rent.png')
+fig2.savefig(name+'Mortgage-vs-rent.png')
 ax.legend()
 plt.show()
 
@@ -123,7 +120,7 @@ fig3,ax=plt.subplots()
 ax.plot(yr,totalbuycost, label='Buy Cost')
 ax.plot(yr, rent,label='Rent cost')
 ax.set(xlabel='Year',ylabel='Total cost assuming inflation, $1000')
-fig3.savefig('Totalcosts.png')
+fig3.savefig(name+'Totalcosts.png')
 ax.legend()
 plt.show()
 
@@ -144,7 +141,7 @@ fig4,ax=plt.subplots()
 ax.plot(yr,income, label='Home appreciation - loan and CC')
 ax.plot(yr, investment,label='Downpayment appreciation')
 ax.set(xlabel='Year',ylabel='Appreciation, $1000')
-fig4.savefig('Appreciation.png')
+fig4.savefig(name+'Appreciation.png')
 ax.legend()
 plt.show()
 
@@ -154,7 +151,7 @@ fig5,ax=plt.subplots()
 ax.plot(yr,homecost, label='Buying')
 ax.plot(yr, rentcost,label='Rent')
 ax.set(xlabel='Year',ylabel='Total cost - appreciation, $1000')
-fig5.savefig('total_costs.png')
+fig5.savefig(name+'total_costs.png')
 ax.legend()
 plt.show()
 
@@ -167,9 +164,10 @@ fig6,ax=plt.subplots()
 ax.plot(yr,savings)
 ax.plot(yr, np.zeros(361), color='gray')
 ax.set(xlabel='Year',ylabel='Savings compared to renting, $1000')
-fig6.savefig('Savings.png')
+fig6.savefig(name+'Savings.png')
 plt.show()
 
+print(name)
 print( 'Savings after 1-7 years ',savings[[12,24,36,48,60,72,84]])
 print('Better to buy point', ind2, ' months')
 print('Estimated monthly property tax before any exemptions', pt)

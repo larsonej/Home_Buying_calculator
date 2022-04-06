@@ -1,7 +1,9 @@
-#fhb.py
+# fhb.py
+# Erik Larson
+# 5/16/2017
 # To determine if buying a house is really a good option, and what we
 # should buy.  
-#ALL values in thousands of dollars
+# ALL values in thousands of dollars
 
 import numpy as np
 import matplotlib
@@ -29,7 +31,7 @@ internet=0.00
 bills=elec+internet
 
 # Calculate local property tax ===================
-pt=0.08
+pt=0.08 #Monthly property tax
 if loc == 'cam':
   pt = 0.007/12.*price*.87  # property tax per month
 if loc == 'som' or loc == 'arl':
@@ -54,8 +56,8 @@ yr=np.arange(361)/12.
 
 #CALCULATING MORTGAGE PAYMENT IN $10 INCREMENTS - needs adjustment for
 #                                              different home prices
-n=201
-payment= ((np.arange(n,dtype=float)/(n-1))-.5)+(price-dp)/220. #Guessing around $100/20k
+n=401
+payment= ((np.arange(n,dtype=float)/(n-1)*4)-.5)+(price-dp)/200. #Guessing around $100/20k
 finaleq=np.arange(n,dtype=float)
 for p in np.arange(n):
   loan=price-dp
